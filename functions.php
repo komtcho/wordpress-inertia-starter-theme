@@ -8,7 +8,8 @@ require_once __DIR__ . '/vendor/autoload.php';
 add_action('wp_enqueue_scripts', function () {
     $version = md5_file(get_stylesheet_directory() . '/dist/mix-manifest.json');
 
-    wp_enqueue_script('bb_theme', get_stylesheet_directory_uri() . '/dist/app.js', [], $version, true);
+    wp_enqueue_script('bb_theme', get_stylesheet_directory_uri() . '/dist/app.js', false, $version, 'all');
+    wp_enqueue_style('komtcho_theme', get_template_directory_uri() . '/dist/app.css', false, $version, 'all');
 });
 
 // Share globally with Inertia views
